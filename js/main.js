@@ -1,17 +1,22 @@
 function guardarDatos() 
 {
-    localStorage.nombre = document.getElementById("nombre").value;
-	localStorage.comment = document.getElementById('comment').value;
-	for (var clave in localStorage) {
+    var nombre = document.getElementById("nombre").value;
+	var comment = document.getElementById('comment').value;
+	localStorage.setItem(nombre,comment);
+
+	for (var i=0 ; i< localStorage.length ; i++) 
+	{
+		var clave=localStorage.key(i);
+		var value=localStorage.getItem(clave);
 		var divPrincipal = document.getElementById('addComentario');
 		var divComentario = document.createElement('div');
   	        divComentario.setAttribute('class','divComentario');
   	    var name = document.createElement('p');
-  	    var name1 = document.createTextNode(localStorage.nombre);
+  	    var name1 = document.createTextNode(clave);
   	    var comenta = document.createElement('p');
-  	    var comenta1 = document.createTextNode(localStorage.comment);
-  	    var valor = localStorage[clave];
-  	    comenta.appendChild(valor);
+  	    var comenta1 = document.createTextNode(value);
+  	   
+  	    comenta.appendChild(comenta1);
 	    name.appendChild(name1);
 	    divComentario.appendChild(name);
 	    divComentario.appendChild(comenta);
@@ -22,6 +27,7 @@ function guardarDatos()
 }
 function limpiar()
 {
-	document.getElementById("datos").innerHTML = " ";
+	var clear = divComentario.getElementById('datos');
+	localStorage.clear();
 	
 }
