@@ -5,8 +5,7 @@ function guardarDatos()
 	localStorage.comment = document.getElementById('comment').value;
 	if((localStorage.nombre != undefined) && (localStorage.password != undefined)) 
 	{
-		var name = sessionStorage.key(i);
-		var clave = sessionStorage.getItem(name);
+
 		var divPrincipal = document.getElementById('addComentario');
 		var divComentario = document.createElement('div');
   	        divComentario.setAttribute('class','divComentario');
