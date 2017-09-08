@@ -2,9 +2,7 @@ function guardarDatos()
 {
     localStorage.nombre = document.getElementById("nombre").value;
 	localStorage.comment = document.getElementById('comment').value;
-	if((localStorage.nombre != undefined) && (localStorage.comment != undefined)) 
-	{
-
+	for (var clave in localStorage) {
 		var divPrincipal = document.getElementById('addComentario');
 		var divComentario = document.createElement('div');
   	        divComentario.setAttribute('class','divComentario');
@@ -17,15 +15,12 @@ function guardarDatos()
 	    divComentario.appendChild(name);
 	    divComentario.appendChild(comenta);
 	    divPrincipal.appendChild(divComentario);
- 	}
-	else
-	{
-		document.getElementById('addComentario').innerHTML = "No has introducido tu nombre y tu password";
+	    divPrincipal = localStorage[clave];
 	}
 
 }
 function limpiar()
 {
-	document.getElementById("nombre").innerHTML = " ";
-	document.getElementById("comment").innerHTML = " ";
+	document.getElementById("datos").innerHTML = " ";
+	
 }
