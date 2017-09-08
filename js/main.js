@@ -1,27 +1,33 @@
 /*aquí va tu código*/
 function guardarDatos() 
 {
-    var nombre = document.getElementById("nombre").value;
-    var comment = document.getElementById("comment").value;
-    sessionStorage.setItem(nombre,comment);
-    for (var i = 0; i < sessionStorage.length; i++) {
+    localStorage.nombre = document.getElementById("nombre").value;
+	localStorage.comment = document.getElementById('comment').value;
+	if((localStorage.nombre != undefined) && (localStorage.password != undefined)) 
+	{
 		var name = sessionStorage.key(i);
 		var clave = sessionStorage.getItem(name);
 		var divPrincipal = document.getElementById('addComentario');
 		var divComentario = document.createElement('div');
   	        divComentario.setAttribute('class','divComentario');
-  	    var name = document.createElement('label');
+  	    var name = document.createElement('p');
   	    var name1 = document.createTextNode(nombre);
-  	    var comenta = document.createElement('label');
+  	    var comenta = document.createElement('p');
   	    var comenta1 = document.createTextNode(comment);
   	    comenta.appendChild(comenta1);
 	    name.appendChild(name1);
 	    divComentario.appendChild(name);
 	    divComentario.appendChild(comenta);
 	    divPrincipal.appendChild(divComentario);
+ 	}
+	else
+	{
+		document.getElementById('addComentario').innerHTML = "No has introducido tu nombre y tu password";
 	}
+
 }
-function clearData()
+function limpiar()
 {
-	document.getElementById("datos").innerHTML = 'limpiada vistas. Los datos permanecen.';
+	document.getElementById("nombre").innerHTML = " ";
+	document.getElementById("comment").innerHTML = " ";
 }
