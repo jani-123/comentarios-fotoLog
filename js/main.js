@@ -9,9 +9,9 @@ function guardarDatos()
 		var divComentario = document.createElement('div');
   	        divComentario.setAttribute('class','divComentario');
   	    var name = document.createElement('p');
-  	    var name1 = document.createTextNode(nombre);
+  	    var name1 = document.createTextNode(localStorage.nombre);
   	    var comenta = document.createElement('p');
-  	    var comenta1 = document.createTextNode(comment);
+  	    var comenta1 = document.createTextNode(localStoragecomment);
   	    comenta.appendChild(comenta1);
 	    name.appendChild(name1);
 	    divComentario.appendChild(name);
