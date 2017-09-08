@@ -15,7 +15,6 @@ function guardarDatos()
   	    var name1 = document.createTextNode(clave);
   	    var comenta = document.createElement('p');
   	    var comenta1 = document.createTextNode(value);
-  	   
   	    comenta.appendChild(comenta1);
 	    name.appendChild(name1);
 	    divComentario.appendChild(name);
@@ -27,7 +26,7 @@ function guardarDatos()
 }
 function limpiar()
 {
-	var clear = divComentario.getElementById('datos');
+	
 	localStorage.clear();
 	
 }
