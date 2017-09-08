@@ -2,7 +2,7 @@ function guardarDatos()
 {
     localStorage.nombre = document.getElementById("nombre").value;
 	localStorage.comment = document.getElementById('comment').value;
-	if((localStorage.nombre != undefined) && (localStorage.password != undefined)) 
+	if((localStorage.nombre != undefined) && (localStorage.comment != undefined)) 
 	{
 
 		var divPrincipal = document.getElementById('addComentario');
