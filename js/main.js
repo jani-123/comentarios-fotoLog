@@ -26,6 +26,6 @@ function guardarDatos()
 }
 function limpiar()
 {
-	localStorage.clear();
+	localStorage.clear();// limpia
 	
 }
