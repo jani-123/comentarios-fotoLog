@@ -11,10 +11,10 @@ function guardarDatos()
   	    var comenta = document.createElement('p');
   	    var comenta1 = document.createTextNode(localStorage.comment);
   	    var valor = localStorage[clave];
-  	    comenta.appendChild(comenta1);
+  	    comenta.appendChild(valor);
 	    name.appendChild(name1);
 	    divComentario.appendChild(name);
-	    divComentario.appendChild(valor);
+	    divComentario.appendChild(comenta);
 	    divPrincipal.appendChild(divComentario);
 
 	}
