@@ -1,34 +1,28 @@
-function guardarDatos() 
-{
-    var nombre = document.getElementById("nombre").value;
-	var comment = document.getElementById('comment').value;
-	localStorage.setItem(nombre,comment);
+const app  = {
+    item :  {
+        name: undefined,
+        comment: undefined
+    },
+    init : function () {
+        app.item.name =   $('#nombre');
+        app.item.comment =   $('#comentarios');
 
-	for (var i=0 ; i< localStorage.length ; i++) 
-	{
-		var clave=localStorage.key(i);
-		var value=localStorage.getItem(clave);
-		// var divPrincipal = document.getElementById('addComentario');
-		$("#addComentario").append('<div><p>'+clave+'</p><p>'+value+'</p></div>')
-		// var divComentario = document.createElement('div');
-  // 	        divComentario.setAttribute('class','divComentario');
-  // 	    var name = document.createElement('p');
-  // 	    var name1 = document.createTextNode(clave);
-  // 	    var comenta = document.createElement('p');
-  // 	    var comenta1 = document.createTextNode(value);
-  // 	    comenta.appendChild(comenta1);
-	 //    name.appendChild(name1);
-	 //    divComentario.appendChild(name);
-	 //    divComentario.appendChild(comenta);
-	 //    divPrincipal.appendChild(divComentario);
+        app.setup ();
+    },
 
-	}
+    setup: function () {
+        $('#btnGuardar').click (app.addComment) ;
+        $('#btnLimpiar').click (app.clearComments) ;
+    },
 
-}
-function limpiar()
-{
-	localStorage.clear();// limpia
-	$("#addComentario").empty();
+    addComment: function (event) {
+        $('#addComentario').append ( `<p> ${app.item.name.val()} </p>\
+                            <p>  ${app.item.comment.val()} </p>`);
 
-	
-}
+    },
+
+    clearComments: function (event) {
+        $('#addComentario').empty();
+    }
+};
+$(document).ready ( app.init );
